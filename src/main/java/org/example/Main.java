@@ -1,17 +1,27 @@
 package org.example;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+public class Main extends Application {
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+    @Override
+    public void start(Stage stage) {
+        Button boton1 = new Button("Botón 1");
+        Button boton2 = new Button("Botón 2");
+        Button boton3 = new Button("Botón 3");
+
+        HBox hbox = new HBox(boton1, boton2);
+        VBox vbox = new VBox(hbox, boton3);
+
+        stage.setScene(new Scene(vbox, 300, 200));
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
